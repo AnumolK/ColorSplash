@@ -1,0 +1,12 @@
+
+<div class="form-container">
+   <button class="buttonview">View</button>
+    <h2>Register</h2>
+    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+      <input type="text" placeholder="Category Name" required formControlName="CategoryName"/>
+      <button type="submit">Submit</button>
+    </form>
+    <div *ngIf="message">
+{{ message }}
+    </div>
+  </div>

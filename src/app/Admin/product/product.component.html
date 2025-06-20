@@ -1,0 +1,22 @@
+
+<div class="form-container">
+     <button class="buttonview">View</button>
+    <h2>Register</h2>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <select formControlName="CategoryId">
+            <option value='' disabled selected>Choose a category</option>
+            <option *ngFor="let category of categories" value="{{category.id}}">{{category.categoryName}}</option>
+        </select>
+        <select formControlName="BrandId">
+            <option value='' disabled selected>Choose a Brand</option>
+            <option *ngFor="let brand of brands" value="{{brand.id}}">{{brand.brandName}}</option>
+        </select>
+      <input type="text" placeholder="Product Name" required formControlName="ProductName"/>
+      <input type="text" placeholder="Image url" formControlName="ProductImage" />
+      <input type="text" placeholder="Cost" formControlName="ProductCost" />
+      <button type="submit">Submit</button>
+    </form>
+    <div *ngIf="message">
+        {{ message }}
+    </div>
+  </div>

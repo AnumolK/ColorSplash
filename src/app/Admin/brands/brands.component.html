@@ -1,0 +1,13 @@
+
+<div class="form-container">
+   <button class="buttonview">View</button>
+    <h2>Register</h2>
+    <form [formGroup]="brandForm" (ngSubmit)="onSubmit()">
+      <input type="text" placeholder="Brand Name" required formControlName="BrandName"/>
+      <input type="text" placeholder="Logo url" formControlName="Logo" />
+      <button type="submit">Submit</button>
+    </form>
+    <div *ngIf="message">
+        {{ message }}
+    </div>
+  </div>

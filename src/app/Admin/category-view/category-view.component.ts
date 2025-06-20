@@ -17,7 +17,6 @@ ngOnInit(){
       next:(data) =>{
         this.categories=data
         console.log('Brand',data)
-        console.log('Brand',data)
       }
     })
 }

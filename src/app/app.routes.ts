@@ -8,6 +8,8 @@ import { AdminMasterComponent } from './Admin/admin-master/admin-master.componen
 import { BrandsComponent } from './Admin/brands/brands.component';
 import { ProductComponent } from './Admin/product/product.component';
 import { CategoryViewComponent } from './Admin/category-view/category-view.component';
+import { BrandViewComponent } from './Admin/brand-view/brand-view.component';
+import { ProductViewComponent } from './Admin/product-view/product-view.component';
 
 export const routes: Routes = [
     {path: '', component:GuestHomeComponent},
@@ -20,6 +22,8 @@ export const routes: Routes = [
              {path:'brand' ,component:BrandsComponent},
              {path:'product' , component:ProductComponent},
              {path:'categoryview' , component:CategoryViewComponent},
+             {path:'brandview' , component:BrandViewComponent},
+             {path:'productview' , component:ProductViewComponent},
         ]},
    {path: 'categories',component:CategoryComponent},
     {path: 'customerhome',component:CustomerHomeComponent}

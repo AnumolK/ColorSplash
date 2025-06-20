@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiService } from '../../api.service';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-category',
-  imports: [FormsModule,CommonModule,ReactiveFormsModule],
+  imports: [FormsModule,CommonModule,ReactiveFormsModule,RouterModule],
   templateUrl: './category.component.html',
   styleUrl: './category.component.css'
 })

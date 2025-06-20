@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-brands',
-  imports: [ReactiveFormsModule,CommonModule,FormsModule],
+  imports: [ReactiveFormsModule,CommonModule,FormsModule,RouterModule],
   templateUrl: './brands.component.html',
   styleUrl: './brands.component.css'
 })

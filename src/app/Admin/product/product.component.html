@@ -1,6 +1,6 @@
 
 <div class="form-container">
-     <button class="buttonview">View</button>
+     <button class="buttonview" [routerLink]="['/admin/productview']">View</button>
     <h2>Register</h2>
     <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
         <select formControlName="CategoryId">

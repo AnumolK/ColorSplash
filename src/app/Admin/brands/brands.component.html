@@ -1,6 +1,6 @@
 
 <div class="form-container">
-   <button class="buttonview">View</button>
+   <button class="buttonview" routerLink="/admin/brandview">View</button>
     <h2>Register</h2>
     <form [formGroup]="brandForm" (ngSubmit)="onSubmit()">
       <input type="text" placeholder="Brand Name" required formControlName="BrandName"/>

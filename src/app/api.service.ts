@@ -43,4 +43,9 @@ export class ApiService {
       withCredentials:true
     })
   }
+  getProducts(): Observable <any[]>{
+    return this.http.get<any[]>('https://localhost:7175/api/Product',{
+      withCredentials: false
+    });
+  }
 }

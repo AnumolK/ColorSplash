@@ -4,14 +4,22 @@
     <thead>
       <tr>
         <th>#</th>
-        <th>Category Name</th>
+        <th>Product Name</th>
+        <th>Category</th>
+        <th>Brand</th>
+        <th>Image</th>
+        <th>Cost</th>
         <!-- <th>Actions</th> -->
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let data of categories; let i=index">
+      <tr *ngFor="let data of products; let i=index">
         <td>{{i+1}}</td>
+        <td>{{data.productName}}</td>
         <td>{{data.categoryName}}</td>
+        <td>{{data.brandName}}</td>
+        <td><img [src]="data.productImage" /></td>
+        <td>{{data.productCost}}</td>
         <!-- <td><button>Edit</button> <button>Delete</button></td> -->
       </tr>
     </tbody>

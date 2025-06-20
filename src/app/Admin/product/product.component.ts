@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-product',
-  imports: [ReactiveFormsModule,FormsModule,CommonModule],
+  imports: [ReactiveFormsModule,FormsModule,CommonModule,RouterModule],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })

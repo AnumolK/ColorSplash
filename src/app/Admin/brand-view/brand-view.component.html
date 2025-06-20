@@ -5,16 +5,17 @@
       <tr>
         <th>#</th>
         <th>Category Name</th>
+        <th>Logo</th>
         <!-- <th>Actions</th> -->
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let data of categories; let i=index">
+      <tr *ngFor="let data of brands; let i=index">
         <td>{{i+1}}</td>
-        <td>{{data.categoryName}}</td>
+        <td>{{data.brandName}}</td>
+        <td><img [src]="data.logo" /></td>
         <!-- <td><button>Edit</button> <button>Delete</button></td> -->
       </tr>
     </tbody>
   </table>
 </div>
-

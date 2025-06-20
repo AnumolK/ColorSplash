@@ -1,6 +1,6 @@
 
 <div class="form-container">
-   <button class="buttonview">View</button>
+   <button class="buttonview" routerLink="/admin/categoryview">View</button>
     <h2>Register</h2>
     <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
       <input type="text" placeholder="Category Name" required formControlName="CategoryName"/>

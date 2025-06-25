@@ -1,0 +1,28 @@
+<div class="orders-container">
+  <h2>My Orders</h2>
+
+  <div class="order-card" *ngFor="let order of orders">
+    <div class="card-content">
+      <div class="product-image">
+        <img [src]="order.productImage" alt="{{ order.name }}" />
+      </div>
+
+      <div class="product-details">
+        <h3>{{ order.productName }}</h3>
+        <p>{{ order.brandName }}</p>
+        <p><strong>Order {{order.status}}</strong></p>
+        <p><strong>Category:</strong> {{ order.categoryName }}</p>
+        <p><strong>Order Date:</strong> {{ order.orderDate }}</p>
+        <p><strong>Quantity:</strong> {{ order.orderQuantity }}</p>
+            <span>{{order.colourName}}</span><div 
+            class="color-swatch" 
+            [ngStyle]="{ 'background-color': order.colourImage }"
+            title="{{ order.colourName }}">
+          </div>
+       <button  (click)="cancelOrder(order.id)" [disabled]="order.status === 'Cancelled' || order.status === 'Delivered'">
+        Cancel Order
+      </button>
+      </div>
+    </div>
+  </div>
+</div>

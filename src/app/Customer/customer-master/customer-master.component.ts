@@ -4,22 +4,21 @@ import { Router, RouterModule } from '@angular/router';
 import { ApiService } from '../../api.service';
 
 @Component({
-  selector: 'app-admin-master',
+  selector: 'app-customer-master',
   imports: [CommonModule,RouterModule],
-  templateUrl: './admin-master.component.html',
-  styleUrl: './admin-master.component.css'
+  templateUrl: './customer-master.component.html',
+  styleUrl: './customer-master.component.css'
 })
-export class AdminMasterComponent {
+export class CustomerMasterComponent {
+constructor(private api:ApiService, private route:Router){}
 
-  constructor(private api:ApiService,private route:Router){}
-
-  ngOnInit(){
-    if(localStorage.getItem('role') != 'Admin'){
+ngOnInit(){
+    if(localStorage.getItem('role') != 'Customer'){
       window.location.href=('/login')
     }
-  }
-  
-  logOut(){
+}
+
+    logOut(){
     this.api.logOut().subscribe({
       next : (res)=>{
         console.log(res);

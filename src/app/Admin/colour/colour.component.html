@@ -1,0 +1,14 @@
+
+<div class="form-container">
+   <button class="buttonview" routerLink="/admin/colourview">View</button>
+    <h2>Register</h2>
+    <form [formGroup]="colourForm" (ngSubmit)="onSubmit()">
+      <input type="text" placeholder="Colour Name" required formControlName="ColourName"/>
+      <input type="text" placeholder="Colour code" formControlName="ColourCode" />
+      <input type="text" placeholder="Colour Hexa code" formControlName="ColourImage" />
+      <button type="submit">Submit</button>
+    </form>
+    <div *ngIf="message">
+        {{ message }}
+    </div>
+  </div>

@@ -2,13 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from '../../api.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 
 @Component({
    selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule,RouterModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']  
 })
@@ -32,7 +32,9 @@ this.api.login(this.loginForm.value).subscribe({
         }
         else
         {
-             window.location.href=('/customerhome')
+              localStorage.setItem('customerId',res.customerId)
+              console.log(localStorage.getItem('customerId'));
+             window.location.href=('customer/customerhome')
         }
       }
       else{

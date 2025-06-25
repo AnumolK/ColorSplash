@@ -1,7 +1,34 @@
+<div class="nav-bar">
+  <h1 class="logo"> ColorSplash</h1>
+  <nav>
+    <a routerLink="/">Home</a>
+    <a routerLink="/customer/products">Products</a>
+    <a routerLink="/registration">Sign Up</a>
+    <a routerLink="/login">Sign In</a>
+  </nav>
+</div>
 
-  <main>
-    <section class="intro">
-      <h2>Bring Your Walls to Life</h2>
-      <p>Explore our wide range of eco-friendly, vivid paints crafted for every surface and every soul.</p>
-    </section>
-  </main>
+<div class="banner">
+  <div class="banner-text">
+    <h2>Welcome to ColorSplash</h2>
+    <p>Your one-stop shop for vibrant paints & tools!</p>
+  </div>
+</div>
+
+<div class="intro-section">
+  <h3>Why Choose Us?</h3>
+  <p>We provide premium quality paints and expert color consultation for your dream space.</p>
+</div>
+<div class="intro-section">
+  <h3>Wide Range of Colours</h3>
+  <div class="container py-4">
+  <div class="row g-3">
+    <div class="col-2" *ngFor="let color of colors">
+      <div class="color-card" [ngStyle]="{ 'background-color': color.colourImage }">
+        <span class="color-code">{{ color.colourCode }}</span>
+      </div>
+      <div>{{color.colourName}}</div>
+    </div>
+  </div>
+</div>
+</div>

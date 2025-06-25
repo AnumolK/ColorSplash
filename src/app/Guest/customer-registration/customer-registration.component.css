@@ -1,0 +1,66 @@
+.registration-container {
+  max-width: 400px;
+  margin: 60px auto;
+  background: linear-gradient(120deg, #f9c542, #f28c28);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.registration-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+  text-align: center;
+}
+
+.registration-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.registration-container input {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.registration-container textarea {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.registration-container button {
+  padding: 12px;
+  background-color: #ff5e07;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.registration-container button:hover {
+  background-color: #dd1f06f3;
+}
+
+.login-link {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.login-link a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.error-text{
+  color: red;
+
+}

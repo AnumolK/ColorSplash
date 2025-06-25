@@ -1,0 +1,65 @@
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
+.paint-card {
+  /* width: 250px; */
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+
+.paint-card:hover {
+  transform: translateY(-5px);
+}
+
+.paint-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.paint-details {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.paint-title {
+  font-size: 18px;
+  margin: 0 0 8px;
+  color: #2c3e50;
+}
+
+.paint-desc {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.paint-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.paint-price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #27ae60;
+}
+
+.buy-btn {
+  background-color: #e67e22;
+  border: none;
+  padding: 8px 12px;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.buy-btn:hover {
+  background-color: #d35400;
+}

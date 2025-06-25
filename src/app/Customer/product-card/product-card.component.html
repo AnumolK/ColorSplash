@@ -1,0 +1,47 @@
+<div class="container mt-5">
+  <div class="row">
+    <!-- Product Image -->
+    <div class="col-md-5 text-center" *ngIf="product">
+      <img [src]="product.productImage" alt="{{ product.productName }}" class="img-fluid rounded shadow" />
+    </div>
+
+    <!-- Product Details -->
+    <div class="col-md-7" >
+      <h2>{{ product.productName }}</h2>
+      <p><strong>Brand:</strong> {{ product.brandName }}</p>
+      <p><strong>Category:</strong> {{ product.categoryName }}</p>
+      <p><strong>Cost:</strong> ₹{{ product.productCost }}</p>
+
+      <div class="mb-3" *ngIf="product.categoryName!='Base'">
+        <label class="form-label">Choose a Color</label>
+        <div class="d-flex flex-wrap gap-2">
+          <div 
+            *ngFor="let color of colours" 
+            class="color-swatch" 
+            [ngClass]="{ 'selected': selectedColorId === color.id }"
+            [ngStyle]="{ 'background-color': color.colourImage }"
+             (click)="selectColour(color.id)"
+            title="{{ color.colourName }}">
+          </div>
+        </div>
+      </div>
+
+      <!-- Quantity Input -->
+       <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3 mt-4 w-50">
+            <label for="quantity" class="form-label">Quantity</label>
+          <input type="number" formControlName="OrderQuantity" class="form-control" />
+        </div>
+             <div  *ngIf="orderForm.get('OrderQuantity')?.invalid" class="text-danger">
+            <small>OrderQuantity is required and atleast be 1</small>
+          </div>
+      <button class="btn btn-primary" type="submit">Book Now</button>
+    </form>
+    </div>
+  </div>
+</div>
+
+
+      
+      <!-- Book Now -->
+   

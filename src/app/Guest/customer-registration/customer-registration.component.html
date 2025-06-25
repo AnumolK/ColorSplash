@@ -1,0 +1,53 @@
+<div class="registration-container">
+  <h2>Create Account</h2>
+  <form (ngSubmit)="onSubmit()" [formGroup]="regForm">
+      <div *ngIf="regForm.get('Name')?.touched && regForm.get('Name')?.invalid">
+          <span class="error-text" *ngIf="regForm.get('Name')?.errors?.['required']">
+            *Name is required.
+          </span>
+          <span class="text-danger" *ngIf="regForm.get('Name')?.errors?.['pattern']">
+            *Name must start with a capital letter and contain only alphabets.
+          </span>
+      </div>
+    <input type="text" placeholder="Full Name" formControlName="Name" required />
+    
+    <div *ngIf="regForm.get('Email')?.touched && regForm.get('Email')?.invalid">
+      <span class="error-text" *ngIf="regForm.get('Email')?.errors?.['required']">
+        *Email is Required
+      </span>
+      <span class="error-text" *ngIf="regForm.get('Email')?.errors?.['email']">
+        *Please enter a valid Email
+      </span>
+    </div>
+    <input type="email" placeholder="Email Address" formControlName="Email" required />
+
+    <div *ngIf="regForm.get('Contact')?.touched && regForm.get('Contact')?.invalid">
+      <span class="error-text" *ngIf="regForm.get('Contact')?.errors?.['required']">
+        *Contact is Required
+      </span>
+      <span class="error-text" *ngIf="regForm.get('Contact')?.errors?.['pattern']">
+        *Contact should contain 10 digits
+      </span>
+    </div>
+    <input type="tel" placeholder="Phone Number" formControlName="Contact" />
+
+    <div *ngIf="regForm.get('Address')?.touched && regForm.get('Address')?.invalid">
+      <span class="error-text">
+        *Address is Required
+      </span>
+     </div>
+    <textarea placeholder="Address" formControlName="Address"></textarea>
+
+    <div *ngIf="usernameCtrl.invalid && usernameCtrl.touched" class="error-text">
+      <small>Username is required.</small>
+    </div>
+    <input type="text" placeholder="Username" #usernameCtrl="ngModel" [(ngModel)]="username" [ngModelOptions]="{ standalone: true }"  required />
+    
+    <div *ngIf="passwordCtrl.invalid && passwordCtrl.touched" class="error-text">
+      <small>Password is required.</small>
+    </div>
+    <input type="password" #passwordCtrl="ngModel" placeholder="Password" [(ngModel)]="password" [ngModelOptions]="{ standalone: true }" required  />
+    <button type="submit">Register</button>
+  </form>
+  <p class="login-link">Already have an account? <a routerLink="/login">Sign in</a></p>
+</div>

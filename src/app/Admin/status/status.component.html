@@ -1,0 +1,11 @@
+<div class="form-container">
+   <!-- <button class="buttonview" routerLink="/admin/statusview">View</button> -->
+    <h2>Register</h2>
+    <form [formGroup]="statusForm" (ngSubmit)="onSubmit()">
+      <input type="text" placeholder="Status Name" required formControlName="StatusName"/>
+      <button type="submit">Submit</button>
+    </form>
+    <div *ngIf="message">
+{{ message }}
+    </div>
+  </div>

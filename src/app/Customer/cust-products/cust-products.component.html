@@ -1,0 +1,37 @@
+<div>
+  <div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <label for="category">Category</label>
+      <select class="form-select" id="category" [(ngModel)]="selectedCategory" (change)="filterProducts()">
+        <option selected value="">All categories</option>
+         <option *ngFor="let category of categories">{{category.categoryName}}</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="Brand">Brand</label>
+      <select class="form-select" id="Brand" [(ngModel)]="selectedBrand" (change)="filterProducts()">
+        <option selected value="">All Brands</option>
+          <option *ngFor="let brand of brands">{{brand.brandName}}</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+</div>
+<div class="main-page m-auto">
+  <div class="row d-flex justify-content-center m-5">
+    <div class="paint-card col-3 m-3" *ngFor="let product of filteredProducts">
+      <img [src]="product.productImage" alt="Paint Bucket" class="paint-image" />
+      <div class="paint-details">
+        <h3 class="paint-title">{{product.productName}}</h3>
+        <div class="paint-meta">
+          <span class="paint-price">₹{{product.productCost}}</span>
+          <button class="buy-btn" [routerLink]="['/customer/product', product.id]">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

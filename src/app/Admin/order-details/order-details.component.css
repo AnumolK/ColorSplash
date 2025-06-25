@@ -1,0 +1,43 @@
+.order-card {
+      max-width: 600px;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 25px;
+      margin: auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .order-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
+
+    .order-header h3 {
+      margin: 0;
+      color: #333;
+    }
+
+    .order-info p {
+      margin: 6px 0;
+      color: #555;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #444;
+    }
+
+    .status-dropdown {
+      margin-top: 15px;
+    }
+
+    select {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }

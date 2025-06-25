@@ -60,13 +60,13 @@ if(!this.orderForm.value.ColourId){
 }
    if(this.orderForm.valid){
       console.log('Valid',this.orderForm.value)
-      // this.api.makeOrder(this.orderForm.value).subscribe({
-      //   next:(res) =>{
-      //     console.log(res)
-      //     this.message="Order Placed"
-      //     this.orderForm.reset();
-      //   }
-      // })
+      this.api.makeOrder(this.orderForm.value).subscribe({
+        next:(res) =>{
+          console.log(res)
+          this.message="Order Placed"
+          this.orderForm.reset();
+        }
+      })
     }
     else{
       this.message="Order Not Placed"

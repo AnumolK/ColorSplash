@@ -38,16 +38,22 @@
      </div>
     <textarea placeholder="Address" formControlName="Address"></textarea>
 
-    <div *ngIf="usernameCtrl.invalid && usernameCtrl.touched" class="error-text">
-      <small>Username is required.</small>
-    </div>
-    <input type="text" placeholder="Username" #usernameCtrl="ngModel" [(ngModel)]="username" [ngModelOptions]="{ standalone: true }"  required />
-    
-    <div *ngIf="passwordCtrl.invalid && passwordCtrl.touched" class="error-text">
-      <small>Password is required.</small>
-    </div>
-    <input type="password" #passwordCtrl="ngModel" placeholder="Password" [(ngModel)]="password" [ngModelOptions]="{ standalone: true }" required  />
+    <div *ngIf="regForm.get('Username')?.touched && regForm.get('Username')?.invalid">
+      <span class="error-text">
+        *Username is required and should have a minimum length of 5
+      </span>
+     </div>
+    <input type="text" placeholder="Username" formControlName="Username"  required />
+     <div *ngIf="regForm.get('Password')?.touched && regForm.get('Password')?.invalid">
+      <span class="error-text">
+        *Password is required and should have a minimum length of 5
+      </span>
+     </div>
+    <input type="password"  placeholder="Password" formControlName="Password" required  />
     <button type="submit">Register</button>
   </form>
+  <div class="error-text">
+    {{message}}
+  </div>
   <p class="login-link">Already have an account? <a routerLink="/login">Sign in</a></p>
 </div>

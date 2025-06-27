@@ -1,7 +1,7 @@
 
 <div class="form-container">
    <button class="buttonview" routerLink="/admin/brandview">View</button>
-    <h2>Register</h2>
+    <h2>Add Brand</h2>
     <form [formGroup]="brandForm" (ngSubmit)="onSubmit()">
       <input type="text" placeholder="Brand Name" required formControlName="BrandName"/>
       <input type="text" placeholder="Logo url" formControlName="Logo" />

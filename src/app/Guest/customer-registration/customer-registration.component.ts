@@ -14,47 +14,31 @@ export class CustomerRegistrationComponent {
 
   regForm:any;
   message:any;
-  username:any;
-  password:any;
   constructor(private fb:FormBuilder, private api:ApiService, private route:Router){}
 
 ngOnInit():void {
 this.regForm=this.fb.group({
-  Name:['',[Validators.required,Validators.pattern('^[A-Z][a-zA-Z]*$')]],
+  Name:['',[Validators.required,Validators.pattern('^[A-Z][a-zA-Z ]*$')]],
   Email:['',[Validators.required,Validators.email]],
   Contact:['',[Validators.required, Validators.pattern(/^\d{10}$/)]],
-  Address:['',Validators.required]
+  Address:['',Validators.required],
+  Username:['',[Validators.required,Validators.minLength(5)]],
+  Password:['',[Validators.required,Validators.minLength(5)]],
 })
 }
 
 onSubmit(){
   this.regForm.markAllAsTouched();
    if(this.regForm.valid){
-    this.api.userRegistration(this.regForm.value).subscribe({
-      next: (res)=>{
-        this.message="User Registered";
-         const customerId = res.id; 
-          console.log(res);
-        const loginPayload = {
-          CustomerId: customerId,
-          UserName: this.username, 
-          Password: this.password ,
-          Role:'Customer', 
-        };
-        this.api.userLoginRegistration(loginPayload).subscribe({
-          next: (loginRes) => {
-            console.log("Login info saved", loginRes);
-            this.route.navigate(['/login'])
-          },
-          error: (err) => {
-            console.error("Error saving login info", err);
-          }
-        });
-      }
-    })
-  }
-  else{
-    this.message="User Not Registered .Please Check your data"
+   this.api.userRegistration(this.regForm.value).subscribe({
+    next: (res)=>{
+      this.route.navigate(['/login'])
+    },
+    error: (err)=>{
+      
+      this.message=err.error.message;
+    }
+   })
   }
 }
 }

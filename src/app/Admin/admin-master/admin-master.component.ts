@@ -15,7 +15,7 @@ export class AdminMasterComponent {
 
   ngOnInit(){
     if(localStorage.getItem('role') != 'Admin'){
-      window.location.href=('/login')
+      this.route.navigate(['/login'])
     }
   }
   
@@ -23,10 +23,9 @@ export class AdminMasterComponent {
     this.api.logOut().subscribe({
       next : (res)=>{
         console.log(res);
-        localStorage.setItem('role','')
-        this.route.navigate(['/login']).then(() => {
-          location.reload();
-        });
+        localStorage.clear();
+        sessionStorage.clear();
+        this.route.navigate(['/login'])
       }
     })
   }

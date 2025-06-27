@@ -17,36 +17,36 @@ export class ProductCardComponent {
   orderForm:any;
   message:any;
   whiteColourId:any;
-constructor(private api:ApiService,private route:ActivatedRoute, private fb:FormBuilder){
-this.orderForm=this.fb.group({
+  selectedColorId: number | null = null;
+  productPrice:any;
+constructor(private api:ApiService,private route:ActivatedRoute, private fb:FormBuilder){}
+
+ngOnInit(){
+
+  this.orderForm=this.fb.group({
   ProductId:[''],
   ColourId:[''],
   OrderQuantity:[1,[Validators.required, Validators.min(1)]],
 })
-}
-
-ngOnInit(){
 this.id= this.route.snapshot.paramMap.get('id');
  this.api.getColours().subscribe({
     next:(data)=>{
       this.colours=data;
-      console.log(this.colours)
       const whiteColour = this.colours.find((colour: any) =>
         typeof colour.colourName === 'string' && colour.colourName.toLowerCase() === 'white');
       this.whiteColourId = whiteColour ? whiteColour.id : null;
+      this.selectedColorId=this.whiteColourId;
     }
   })
-
-console.log(this.id);
-this.api.getProduct(this.id).subscribe({
-  next: (res)=>{
-    this.product=res;
-    console.log(this.product)
-  }
-})
+    this.api.getProduct(this.id).subscribe({
+      next: (res)=>{
+        this.product=res;
+        this.productPrice=this.product.productCost;
+      }
+    })
 }
 
-selectedColorId: number | null = null;
+
 
 selectColour(colorId: number) {
   this.selectedColorId = colorId;
@@ -69,9 +69,13 @@ if(!this.orderForm.value.ColourId){
       })
     }
     else{
-      this.message="Order Not Placed"
-        console.log('Invalid',this.orderForm.value)
+      this.message="Order Not Placed. Please Try again!"
     }
   
+}
+
+updatePrice() {
+  const quantity = this.orderForm.get('OrderQuantity')?.value || 1;
+  this.productPrice = this.product.productCost * quantity;
 }
 }

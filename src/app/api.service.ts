@@ -78,12 +78,6 @@ export class ApiService {
       withCredentials:false
     })
   }
-
-  userLoginRegistration(data:any): Observable<any>{
-    return this.http.post('https://localhost:7175/api/Login',data,{
-      withCredentials:false
-    })
-  }
     makeOrder(data:any): Observable<any>{
     return this.http.post('https://localhost:7175/api/Order',data,{
       withCredentials:true

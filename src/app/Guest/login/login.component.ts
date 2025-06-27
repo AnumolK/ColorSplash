@@ -14,6 +14,7 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class LoginComponent {
   loginForm:any;
+  message:string='';
 constructor(private fb:FormBuilder, private api: ApiService,private router: Router){}
 ngOnInit(){
     this.loginForm=this.fb.group({
@@ -22,26 +23,24 @@ ngOnInit(){
   })
   
 }
-onSubmit(){
-this.api.login(this.loginForm.value).subscribe({
-    next: (res) =>{
-      if(res.message=="Login Successful"){
-        localStorage.setItem('role',res.role)
-        if(res.role == "Admin"){
-          window.location.href=('admin/adminhome')
-        }
-        else
-        {
-              localStorage.setItem('customerId',res.customerId)
-              console.log(localStorage.getItem('customerId'));
-             window.location.href=('customer/customerhome')
+onSubmit() {
+  this.api.login(this.loginForm.value).subscribe({
+    next: (res) => {
+      if (res.message === "Login Successful") {
+        localStorage.setItem('role', res.role);
+        if (res.role === "Admin") {
+          this.router.navigate(['admin/adminhome']);
+        } else {
+          localStorage.setItem('customerId', res.customerId);
+          console.log(localStorage.getItem('customerId'));
+          this.router.navigate(['customer/customerhome']);
         }
       }
-      else{
-        console.log("Invalid Login credentials")
-      }
+    },
+    error: (err) => {
+      this.message = 'Invalid Login Credentials';
     }
-  })
-  }
+  });
+}
 }
 

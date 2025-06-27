@@ -3,7 +3,7 @@
   width: 40px;
   height: 40px;
   border-radius: 6px;
-  border: 2px solid transparent;
+  border: 2px solid wheat;
   cursor: pointer;
   transition: border-color 0.2s ease;
 }

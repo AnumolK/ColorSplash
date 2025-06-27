@@ -10,10 +10,10 @@
       <h2>{{ product.productName }}</h2>
       <p><strong>Brand:</strong> {{ product.brandName }}</p>
       <p><strong>Category:</strong> {{ product.categoryName }}</p>
-      <p><strong>Cost:</strong> ₹{{ product.productCost }}</p>
+      <p><strong>Cost:</strong> ₹{{ productPrice }}</p>
 
       <div class="mb-3" *ngIf="product.categoryName!='Base'">
-        <label class="form-label">Choose a Color</label>
+        <label class="form-label">Colors</label>
         <div class="d-flex flex-wrap gap-2">
           <div 
             *ngFor="let color of colours" 
@@ -30,9 +30,9 @@
        <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
         <div class="mb-3 mt-4 w-50">
             <label for="quantity" class="form-label">Quantity</label>
-          <input type="number" formControlName="OrderQuantity" class="form-control" />
+          <input type="number" formControlName="OrderQuantity" class="form-control" (change)="updatePrice()"/>
         </div>
-             <div  *ngIf="orderForm.get('OrderQuantity')?.invalid" class="text-danger">
+             <div  *ngIf="orderForm.get('OrderQuantity')?.touched && orderForm.get('OrderQuantity')?.invalid" class="text-danger">
             <small>OrderQuantity is required and atleast be 1</small>
           </div>
       <button class="btn btn-primary" type="submit">Book Now</button>

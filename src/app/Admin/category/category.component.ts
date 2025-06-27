@@ -23,12 +23,11 @@ ngOnInit(){
 
 onSubmit(){
     if(this.categoryForm.valid){
-      console.log('Hi')
     this.api.addcategories(this.categoryForm.value).subscribe({
       next: (res)=>{
-        console.log(res)
         this.message="category added"
-      }
+        this.categoryForm.reset();
+      },
     })
   }
   this.message="category not added. Please check your data "

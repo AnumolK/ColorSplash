@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from '../../api.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-brand-view',
-  imports: [FormsModule,CommonModule,ReactiveFormsModule],
+  imports: [FormsModule,CommonModule,ReactiveFormsModule,RouterModule],
   templateUrl: './brand-view.component.html',
   styleUrl: './brand-view.component.css'
 })
